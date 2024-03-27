@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>custom-protocol-mapper</artifactId>
+  <artifactId>EduPersonTargetedId</artifactId>
   <version>dev</version>
 
 
@@ -46,6 +46,18 @@
     <artifactId>keycloak-services</artifactId>
     <scope>provided</scope>
     <version>20.0.5</version>
+</dependency>
+<dependency>
+  <groupId>org.keycloak</groupId>
+  <artifactId>keycloak-saml-adapter-core</artifactId>
+  <version>20.0.5</version>
+  <scope>provided</scope>
+</dependency>
+<dependency>
+  <groupId>org.keycloak</groupId>
+  <artifactId>keycloak-saml-core</artifactId>
+  <version>20.0.5</version>
+  <scope>provided</scope>
 </dependency>
   </dependencies>
 
