@@ -1,0 +1,22 @@
+protected String getObjectGUID()
+    {
+        AuthenticationSessionModel authenticationSession = session.getContext().getAuthenticationSession();
+        if(authenticationSession != null)
+        {
+            String username = authenticationSession.getClientNote("username");
+            if(username != null)
+            {
+                System.out.println("USERNAME EXISTE");
+                UserProvider userProvider = session.users();
+                RealmModel realm = session.getContext().getRealm();
+                UserModel user = userProvider.getUserByUsername(realm, username);
+                if(user != null)
+                {
+                    return user.getFirstAttribute("ObjectGUID");
+                }
+            }
+        }
+      
+        System.out.println("USERNAME NULL");
+        return null;
+    }

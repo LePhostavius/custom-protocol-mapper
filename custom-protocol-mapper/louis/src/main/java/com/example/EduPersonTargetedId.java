@@ -1,5 +1,6 @@
 package com.example;
 
+
 import org.jboss.logging.Logger;
 import org.keycloak.dom.saml.v2.assertion.AttributeStatementType;
 import org.keycloak.dom.saml.v2.assertion.AttributeType;
@@ -13,10 +14,13 @@ import org.keycloak.protocol.saml.mappers.AttributeStatementHelper;
 import org.keycloak.protocol.saml.mappers.SAMLAttributeStatementMapper;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
-
 import java.util.List;
 
-import javax.print.attribute.standard.Destination;
+
+
+
+
+
 
 public class EduPersonTargetedId extends AbstractSAMLProtocolMapper implements SAMLAttributeStatementMapper {
 
@@ -28,6 +32,10 @@ public class EduPersonTargetedId extends AbstractSAMLProtocolMapper implements S
 
     private static final List<ProviderConfigProperty> CONFIG_PROPERTIES;
 
+   
+    
+    
+
     static {
         CONFIG_PROPERTIES = ProviderConfigurationBuilder.create()
                 .property()
@@ -35,7 +43,6 @@ public class EduPersonTargetedId extends AbstractSAMLProtocolMapper implements S
                 .type(ProviderConfigProperty.STRING_TYPE)
                 .label("EduPersonTargetedID")
                 .helpText("Génération de l'attribut EduPersonTargetedID")
-                .defaultValue("null")
                 .add()
 // additional properties here
                 .build();
@@ -76,6 +83,8 @@ public class EduPersonTargetedId extends AbstractSAMLProtocolMapper implements S
 
     protected String genEduPersonTargetedID(String urlIDP, String urlSP)
     {
+        System.out.println("GENERATION EduPersonTargetedID");
+       
         return urlIDP+"!"+urlSP+"!";
     }
 
@@ -84,8 +93,10 @@ public class EduPersonTargetedId extends AbstractSAMLProtocolMapper implements S
         System.out.println("GETURL SP\n");
         System.out.println(client.toString());
         System.out.println(client.getRootUrl());
+        
+     
         return client != null ? client.getBaseUrl() : null;
-    }
+    } 
 
     @Override
     public String getHelpText() {
@@ -101,4 +112,6 @@ public class EduPersonTargetedId extends AbstractSAMLProtocolMapper implements S
     public String getId() {
         return PROVIDER_ID;
     }
+
+    
 }
