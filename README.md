@@ -1,6 +1,11 @@
 # custom-protocol-mapper
 Keycloak test custom protocol mapper
 
+INSTALLATION
+Le projet utilise Maven comme gestionnaire de dépendances automatisé. 
+Pour installer les dépendances : mvn install
+Pour générer le .jar : mvn clean install
+
 Fonctionnement basique et objectifs : 
 L'utilisateur veut se connecter à son application (Service Provider dit SP), 
 l'authentification est déléguée à un fournisseur d'identité Keycloak (Identity Provider IdP). 
